@@ -1,0 +1,11 @@
+[user]
+	name = Bojan Popovic
+	email = neuromancer999@gmail.com
+	signingkey = F6FE43CD5758E83BB3106F8F3DD47242B7909BA8
+[core]
+	autocrlf = input
+	editor = nvim
+[push]
+	default = simple
+[rebase]
+	autosquash = true
