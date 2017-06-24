@@ -1,22 +1,22 @@
 [user]
-	name = Bojan Popovic
-	email = neuromancer999@gmail.com
-	signingkey = F6FE43CD5758E83BB3106F8F3DD47242B7909BA8
+    name = Bojan Popovic
+    email = neuromancer999@gmail.com
+    signingkey = F6FE43CD5758E83BB3106F8F3DD47242B7909BA8
 [core]
-	autocrlf = input
-	editor = nvim
+    autocrlf = input
+    editor = nvim
 [push]
-	default = simple
+    default = simple
 [rebase]
-	autosquash = true
+    autosquash = true
 [alias]
     # auto amend
-	can = commit --amend --no-edit
-	uncommit = reset --soft HEAD^
+    can = commit --amend --no-edit
+    uncommit = reset --soft HEAD^
 
     # logs 
-	sla = log --oneline --decorate --graph --all
-	glog = log -E -i --grep
+    sla = log --oneline --decorate --graph --all
+    glog = log -E -i --grep
     recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
     overview = log --all --since='2 weeks' --oneline --no-merges
     recap = log --all --oneline --no-merges --author=neuromancer999@gmail.com
