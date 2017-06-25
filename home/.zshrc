@@ -121,3 +121,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+
+source "/home/bojan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
