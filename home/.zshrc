@@ -5,7 +5,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+if [[ $(hostname -s) = skade ]]; then
+    ZSH_THEME="powerlevel9k/powerlevel9k" else
+    ZSH_THEME="ys"
+fi
+    
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir virtualenv nvm background_jobs vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
 
@@ -75,13 +80,14 @@ eval "$(fasd --init zsh-wcomp-install)"
 
 export EDITOR='vim'
 
-
 export BROWSER='chromium'
 export XDG_CONFIG_HOME=$HOME/.config
 
 for f in ~/.zsh/libs/*; do
     source $f
 done
+
+if [[ $(hostname -s) = skade ]]; then
 
 assh () {
     if ping -c 1 192.168.1.4 &> /dev/null
@@ -96,18 +102,20 @@ rssh () {
     TERM=screen-256color autossh -M 0 -A -X rash -t "tmux -u2 a -t '$@'"
 }
 
-if [[ $1 == eval ]]
-then
-    "$@"
-    set --
-fi
-
 eval $(keychain --eval --agents ssh --quiet id_rsa linode_rsa varg_rsa repo )
 
 alias vim=nvim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+fi
+
+if [[ $1 == eval ]]
+then
+    "$@"
+    set --
+fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
