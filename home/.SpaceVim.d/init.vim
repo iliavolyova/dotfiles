@@ -53,6 +53,7 @@ autocmd FileType html,css,javascript.jsx,js EmmetInstall
 
 let g:spacevim_custom_plugins = [
   \ ['neoclide/vim-jsx-improve', {'on_ft': 'javascript'}],
+  \ ['vimwiki/vimwiki'],
   \ ['itchyny/vim-cursorword'],
   \ ]
 
