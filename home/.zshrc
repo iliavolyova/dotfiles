@@ -96,17 +96,6 @@ rssh () {
     TERM=screen-256color autossh -M 0 -A -X rash -t "tmux -u2 a -t '$@'"
 }
 
-g() {
-  if [[ $# > 0 ]]; then
-    git $@
-  else
-    git status
-  fi
-}
-
-# Complete g like git
-compdef g=git
-
 if [[ $1 == eval ]]
 then
     "$@"
@@ -122,5 +111,3 @@ export NVM_DIR="$HOME/.nvm"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-
-source "/home/bojan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
