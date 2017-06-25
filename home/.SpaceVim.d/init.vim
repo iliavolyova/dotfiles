@@ -1,16 +1,17 @@
-set conceallevel=1
-set concealcursor=""
 set foldmethod=syntax
+set conceallevel=1
 set nowrap
+
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
 
 call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('edit')
 call SpaceVim#layers#load('incsearch')
 
 let g:deoplete#enable_at_startup = 1
-
 let g:javascript_plugin_jsdoc = 1
-let g:javascript_conceal = 2
+
 let g:javascript_conceal_function             = "ƒ"
 let g:javascript_conceal_null                 = "ø"
 let g:javascript_conceal_this                 = "@"
@@ -27,7 +28,6 @@ let g:javascript_conceal_underscore_arrow_function = "🞅"
 let g:jsx_ext_required = 0
 let g:indentLine_faster = 1
 let g:indentLine_setColors = 0
-let g:indentLine_char = '┆'
 let g:indentLine_color_term = 239
 
 let g:used_javascript_libs = 'requirejs,underscore,react'
@@ -36,20 +36,6 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = '/home/bojan/code/workspaces/kodbiro/bptool2/node_modules/.bin/eslint'
 
 let g:spacevim_wildignore = '*/tmp/*,*.so,*.swp,*.zip,*.class,tags,*.jpg,*.ttf,*.TTF,*.png,*/target/*,.git,.svn,.hg,.DS_Store,*/node_modules/*'
-
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-  \ '-i --vimgrep --hidden --ignore ' .
-  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_rec_async_command = ['ag --nocolor --nogroup --ignore ".hg" --ignore ".svn" --ignore ".git" --ignore ".bzr" --hidden -g ""']
-
-let g:tern#filetypes = [
-  \ 'jsx',
-  \ 'javascript.jsx',
-  \ ]
-
-let g:gita#suppress_warning = 1
 
 " neomake
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -66,7 +52,28 @@ autocmd BufWritePost * Neomake
 autocmd FileType html,css,javascript.jsx,js EmmetInstall
 
 let g:spacevim_custom_plugins = [
-  \ ['mxw/vim-jsx', {'on_ft': 'javascript'}],
+  \ ['neoclide/vim-jsx-improve', {'on_ft': 'javascript'}],
   \ ['itchyny/vim-cursorword'],
   \ ]
+
+"call denite#custom#option('default', 'prompt', '> ')
+"call denite#custom#option('default', 'empty', 0)
+"call denite#custom#option('default', 'auto_resize', 1)
+
+"call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+  "\ [ '.git/', 'static/', 'node_modules/', '.ropeproject/', '__pycache__/',
+  "\   'images/', '*.min.*', 'bundle.js', 'img/', 'fonts/'])
+
+"" Change file_rec command.
+"call denite#custom#var('file_rec', 'command',
+  "\ ['ag', '--depth', '10', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+"" grep source ag setup
+"call denite#custom#var('grep', 'command', ['ag'])
+"call denite#custom#var('grep', 'default_opts',
+"\ ['-i', '--vimgrep'])
+"call denite#custom#var('grep', 'recursive_opts', [])
+"call denite#custom#var('grep', 'pattern_opt', [])
+"call denite#custom#var('grep', 'separator', ['--'])
+"call denite#custom#var('grep', 'final_opts', [])
 

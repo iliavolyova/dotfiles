@@ -73,12 +73,8 @@ eval "$(fasd --init zsh-wcomp-install)"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-#Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
-else
-   export EDITOR='mvim'
-fi
+export EDITOR='vim'
+
 
 export BROWSER='chromium'
 export XDG_CONFIG_HOME=$HOME/.config
@@ -99,6 +95,17 @@ assh () {
 rssh () {
     TERM=screen-256color autossh -M 0 -A -X rash -t "tmux -u2 a -t '$@'"
 }
+
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+
+# Complete g like git
+compdef g=git
 
 if [[ $1 == eval ]]
 then
