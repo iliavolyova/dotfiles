@@ -9,6 +9,9 @@ call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('edit')
 call SpaceVim#layers#load('incsearch')
 
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
 let g:deoplete#enable_at_startup = 1
 let g:javascript_plugin_jsdoc = 1
 
